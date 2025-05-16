@@ -1,5 +1,5 @@
-import 'package:mini_game/muyu/models/merit_record.dart';
 import 'package:mini_game/utils/db_utils.dart';
+import 'package:mini_game/views/muyu/models/merit_record.dart';
 import 'package:sqflite/sqflite.dart';
 
 class MeritRecordDao {

@@ -1,11 +1,14 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:mini_game/navigation/app_navigation.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+import 'package:mini_game/controllers/theme_controller.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
+import 'package:mini_game/router/app_pages.dart';
 import 'package:mini_game/storage/db_storage/db_storage.dart';
+import 'package:mini_game/themes/app_themes.dart';
 
+import 'l10n/local_provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   // 确保初始化
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -19,38 +22,47 @@ void main() async {
   // });
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget with LocalProvider {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
+    final ThemeController themeController = Get.put(ThemeController());
+    return GetMaterialApp(
+      // APP标题
+      title: '小游戏',
       //不显示测试DEBUG标志
-      themeMode: ThemeMode.system,
-      darkTheme: ThemeData.dark(),
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          centerTitle: true,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarIconBrightness: Brightness.dark,
-            statusBarColor: Colors.transparent,
-          ),
-          backgroundColor: Colors.white,
-          titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-          iconTheme: IconThemeData(color: Colors.black),
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const AppNavigation(),
+      debugShowCheckedModeBanner: false,
+      //启用日志
+      enableLog: true,
+      //国际化支持
+      supportedLocales: S.delegate.supportedLocales,
+      localizationsDelegates: localizationsDelegates,
+      // 主题模式
+      themeMode: themeController.currentThemeMode.value,
+      // 浅色模式
+      theme: AppThemes.lightTheme,
+      // 神色模式
+      darkTheme: AppThemes.darkTheme,
+      // home: const AppNavigation(),
+      initialRoute: AppPages.INITIAL,
+      // 路由信息
+      getPages: AppPages.routes,
+      // unknownRoute: AppPages.unknownRoute,
+      builder: EasyLoading.init(),
     );
+
   }
+
+  @override
+  List<Locale> get supportedLocales => S.delegate.supportedLocales;
+
+  @override
+  Iterable<LocalizationsDelegate>? get localizationsDelegates => const [
+    S.delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 }
