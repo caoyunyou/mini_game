@@ -4,8 +4,7 @@ class GuessAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onCheck;
   final TextEditingController controller;
 
-  const GuessAppBar({Key? key, required this.onCheck, required this.controller})
-    : super(key: key);
+  const GuessAppBar({super.key, required this.onCheck, required this.controller});
 
   @override
   Widget build(BuildContext context) {

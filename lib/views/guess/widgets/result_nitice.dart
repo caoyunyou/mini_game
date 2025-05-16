@@ -7,11 +7,11 @@ class ResultNotice extends StatelessWidget {
   final AnimationController controller;
 
   const ResultNotice({
-    Key? key,
+    super.key,
     required this.color,
     required this.info,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
