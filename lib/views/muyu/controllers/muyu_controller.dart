@@ -282,7 +282,7 @@ class MuyuController extends GetxController with GetTickerProviderStateMixin {
 
   /// =======↓↓↓↓持久化↓↓↓↓=======
   void saveConfig() {
-    SpStorage.instance.saveMuyu(
+    SpStorage.saveMuyu(
       counter: counter.value,
       activeImageIndex: _activeImageIndex.value,
       activeAudioIndex: _activeAudioIndex.value,
@@ -291,7 +291,7 @@ class MuyuController extends GetxController with GetTickerProviderStateMixin {
 
   // 初始化配置信息
   Future<void> _initConfig() async {
-    Map<String, dynamic> config = await SpStorage.instance.readMuyuConfig();
+    Map<String, dynamic> config = await SpStorage.readMuyuConfig();
     counter.value = config['counter'] ?? 0;
     _activeImageIndex.value = config['activeImageIndex'] ?? 0;
     _activeAudioIndex.value = config['activeAudioIndex'] ?? 0;

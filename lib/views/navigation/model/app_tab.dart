@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:mini_game/l10n/generated/l10n.dart';
 
 enum AppTab {
-  home('/home', Icons.self_improvement),
+  home('/home', Icons.home),
   muyu('/muyu', Icons.note_alt_outlined),
   guess('/guess', Icons.question_mark),
-  paper('/paper', Icons.palette_outlined);
+  paper('/paper', Icons.palette_outlined),
+  main('/main', Icons.self_improvement);
 
   final IconData icon;
   final String path;
 
-  static List<AppTab> get mobileTabs => [guess, muyu, home];
+  static List<AppTab> get mobileTabs => [guess, muyu, paper, home];
 
   const AppTab(this.path, this.icon);
 
@@ -21,6 +22,7 @@ enum AppTab {
       AppTab.muyu => langs.muyuPageTitle,
       AppTab.guess => langs.guessPageTitle,
       AppTab.paper => langs.paperPageTitle,
+      AppTab.main => langs.mainPageTitle,
     };
   }
 }

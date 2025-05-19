@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mini_game/controllers/theme_controller.dart';
-import 'package:mini_game/views/navigation/model/app_tab.dart';
 import 'package:mini_game/l10n/generated/l10n.dart';
+import 'package:mini_game/storage/sp_storage.dart';
+import 'package:mini_game/views/navigation/model/app_tab.dart';
 
 class MenuData {
   //标签
@@ -18,19 +17,19 @@ class AppBottomBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int>? onItemTap;
 
-  AppBottomBar({super.key, required this.currentIndex, this.onItemTap});
+  const AppBottomBar({super.key, required this.currentIndex, this.onItemTap});
 
-  final ThemeController themeController = Get.put(ThemeController());
 
   // 暂时没有区分颜色
   Color get selectedColor {
-    return themeController.currentThemeMode.value == ThemeMode.dark
+
+    return SpStorage.getThemeMode() == ThemeMode.dark
         ? Colors.blueAccent
         : Colors.blueAccent;
   }
 
   Color get unSelectedColor {
-    return themeController.currentThemeMode.value == ThemeMode.dark
+    return SpStorage.getThemeMode() == ThemeMode.dark
         ? Colors.white
         : Colors.black;
   }
@@ -40,7 +39,6 @@ class AppBottomBar extends StatelessWidget {
     S lang = S.of(context);
     return BottomNavigationBar(
       // 背景颜色
-      backgroundColor: Theme.of(context).primaryColor,
       // 点击处理
       onTap: onItemTap,
       // 当前下标
@@ -48,9 +46,7 @@ class AppBottomBar extends StatelessWidget {
       elevation: 3,
       type: BottomNavigationBarType.fixed,
       iconSize: 22,
-      selectedItemColor: selectedColor,
       selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-      unselectedItemColor: unSelectedColor,
       showSelectedLabels: true,
       //选中
       showUnselectedLabels: true,

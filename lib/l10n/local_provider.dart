@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-mixin LocalProvider {
-  Iterable<LocalizationsDelegate<dynamic>>? get localizationsDelegates;
+enum LanguageCode { zh, en }
 
-  List<Locale> get supportedLocales;
+class LocalProvider with ChangeNotifier  {
+  LanguageCode languageCode = LanguageCode.zh;
+
+  // 语言切换
+  void changeLanguage(LanguageCode languageCode) {
+    this.languageCode = languageCode;
+    notifyListeners();
+  }
 }

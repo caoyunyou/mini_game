@@ -74,6 +74,11 @@ class S {
   String get paperPageTitle {
     return Intl.message('画图', name: 'paperPageTitle', desc: '', args: []);
   }
+
+  /// `主页`
+  String get mainPageTitle {
+    return Intl.message('主页', name: 'mainPageTitle', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

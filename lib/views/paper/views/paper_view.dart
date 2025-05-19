@@ -17,6 +17,7 @@ class PaperView extends GetView<PaperController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
+        backgroundColor: Colors.white,
         appBar: PaperAppBar(
           onClear: () => _showDialog(context),
           onBack: controller.lines.isEmpty ? null : controller.back,
@@ -74,7 +75,7 @@ class PaperView extends GetView<PaperController> {
             title: '清空提示',
             conformText: "确定",
             msg: msg,
-            onConform: ()=>controller.onClear(context),
+            onConform: () => controller.onClear(context),
           ),
     );
   }

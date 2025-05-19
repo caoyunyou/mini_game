@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class MuyuHammer extends StatefulWidget {
   final String record;
+  final double height;
+  final double width;
 
-  const MuyuHammer({super.key, required this.record});
+  const MuyuHammer({super.key, required this.record, required this.height, required this.width});
 
   @override
   State<StatefulWidget> createState() => _MuyuHammerState();
@@ -52,8 +54,8 @@ class _MuyuHammerState extends State<MuyuHammer>
       turns: turns,
       child: Image.asset(
         'assets/images/muyu_hammer_1.png',
-        height: 36, //图片高度
-        width: 180,
+        height: widget.height, //图片高度
+        width: widget.width,
       ),
     );
   }

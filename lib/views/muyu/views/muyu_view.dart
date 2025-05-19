@@ -12,6 +12,7 @@ class MuyuView extends GetView<MuyuController> {
   Widget build(BuildContext context) {
     // 媒体宽度
     final mediaWidth = MediaQuery.of(context).size.width;
+    final mediaHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -29,14 +30,16 @@ class MuyuView extends GetView<MuyuController> {
       body: Stack(
         children: [
           Obx(
+            // 计数模块
             () => CountPanel(
               count: controller.counter.value,
               onTapSwitchAudio: () => controller.onTapSwitchAudio(context),
               onTapSwitchImage: () => controller.onTapSwitchImage(context),
             ),
           ),
+          // 木鱼图片模块
           Positioned(
-            bottom: mediaWidth * 0.1,
+            bottom: mediaWidth / 10,
             left: 0,
             right: 0,
             child: AnimatedBuilder(
@@ -49,6 +52,7 @@ class MuyuView extends GetView<MuyuController> {
                       //木鱼图片
                       image: controller.activeImage.src, //选定图片
                       onTap: controller.onKnock,
+                      height: mediaHeight / 5,
                     ),
                   ),
                 );
@@ -56,14 +60,20 @@ class MuyuView extends GetView<MuyuController> {
             ),
           ),
           Obx(
+            // 木鱼锤模块
             () => Positioned(
               //木鱼锤
               //绝对定位
-              right: 10,
-              bottom: mediaWidth * 0.1 + 180,
-              child: MuyuHammer(record: controller.cruRecord.value?.id ?? ''),
+              left: mediaWidth / 2,
+              bottom: mediaHeight / 5 + mediaWidth / 10,
+              child: MuyuHammer(
+                record: controller.cruRecord.value?.id ?? '',
+                width: mediaHeight / 5,
+                height: mediaHeight / 15,
+              ),
             ),
           ),
+          // 功德动画
           Obx(() => Stack(children: [...controller.animatedTexts])),
         ],
       ),

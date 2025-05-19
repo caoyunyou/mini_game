@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mini_game/storage/db_storage/base_dao.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'merit_record.freezed.dart';
 part 'merit_record.g.dart';
 

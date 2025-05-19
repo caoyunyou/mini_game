@@ -18,7 +18,7 @@ class GuessController extends GetxController with GetTickerProviderStateMixin {
   }
 
   Future<void> _initConfig() async {
-    Map<String, dynamic> config = await SpStorage.instance.readGuessConfig();
+    Map<String, dynamic> config = await SpStorage.readGuessConfig();
     guessing = config['guessing'] ?? false;
     value = config['value'] ?? 0;
   }
@@ -32,7 +32,7 @@ class GuessController extends GetxController with GetTickerProviderStateMixin {
   void generateRandomValue() {
     guessing.value = true; //点击按钮标识游戏开启
     value.value = _random.nextInt(100);
-    SpStorage.instance.saveGuess(guessing: guessing.value, value: value.value);
+    SpStorage.saveGuess(guessing: guessing.value, value: value.value);
   }
 
   @override

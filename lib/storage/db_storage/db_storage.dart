@@ -18,6 +18,7 @@ class DbStorage {
 
   MeritRecordDao get meritRecordDao => _meritRecordDao;
 
+  // 开启数据库
   Future<void> open() async {
     String databasePath = await getDatabasesPath();
     // 暂定数据库名称

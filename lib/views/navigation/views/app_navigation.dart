@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mini_game/controllers/theme_controller.dart';
-import 'package:mini_game/views/guess/views/guess_page.dart';
+import 'package:mini_game/views/guess/views/guess_view.dart';
+import 'package:mini_game/views/home/views/home_page.dart';
 import 'package:mini_game/views/muyu/views/muyu_view.dart';
 import 'package:mini_game/views/navigation/controllers/bottom_nav_controller.dart';
 import 'package:mini_game/views/navigation/views/app_bottom_bar.dart';
 import 'package:mini_game/views/paper/views/paper_view.dart';
 
 class AppNavigation extends GetView<BottomNavController> {
-  AppNavigation({super.key});
+  const AppNavigation({super.key});
 
-  final ThemeController themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class AppNavigation extends GetView<BottomNavController> {
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: controller.pageController,
-          children: const [GuessView(), MuyuView(), PaperView()],
+          children: const [GuessView(), MuyuView(), PaperView(),HomeView()],
         ),
       ),
     );

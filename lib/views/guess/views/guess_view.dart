@@ -62,7 +62,7 @@ class GuessView extends GetView<GuessController> {
               controller.guessing.value ? null : controller.generateRandomValue,
           backgroundColor:
               controller.guessing.value ? Colors.grey : Colors.blue,
-          tooltip: 'Increment',
+          tooltip: '生成随机数',
           child: const Icon(Icons.generating_tokens_outlined),
         ),
       ),

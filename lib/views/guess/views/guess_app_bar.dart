@@ -4,18 +4,30 @@ class GuessAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onCheck;
   final TextEditingController controller;
 
-  const GuessAppBar({super.key, required this.onCheck, required this.controller});
+  const GuessAppBar({
+    super.key,
+    required this.onCheck,
+    required this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Icon(Icons.menu, color: Colors.black), //左边
+      // leading: Icon(Icons.menu, color: Colors.black), //左边
+      //右边
       actions: [
-        //右边
-        IconButton(
-          splashRadius: 20,
+        RawMaterialButton(
+          // 圆角
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          ),
+          elevation: 0,
+          highlightElevation: 0,
+          fillColor: Colors.blue,
+          splashColor: Colors.orange,
+          textStyle: const TextStyle(color: Colors.white),
           onPressed: onCheck,
-          icon: Icon(Icons.run_circle_outlined, color: Colors.blue),
+          child: const Text('确定'),
         ),
       ],
       title: TextField(
@@ -39,8 +51,8 @@ class GuessAppBar extends StatelessWidget implements PreferredSizeWidget {
             borderSide: BorderSide(color: Colors.cyanAccent, width: 0.5),
             borderRadius: BorderRadius.all(Radius.circular(6)),
           ),
-          focusedBorder:OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.indigo,width: 0.5),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.indigo, width: 0.5),
             borderRadius: BorderRadius.all(Radius.circular(6)),
           ),
           // 提示文本

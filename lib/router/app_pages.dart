@@ -1,26 +1,31 @@
 import 'package:get/get.dart';
+import 'package:mini_game/views/about_app/bindings/about_app_binding.dart';
+import 'package:mini_game/views/about_app/views/about_app_view.dart';
+import 'package:mini_game/views/dark_mode/bindings/dark_mode_binding.dart';
+import 'package:mini_game/views/dark_mode/views/dark_mode_page.dart';
 import 'package:mini_game/views/guess/bindings/guess_binding.dart';
-import 'package:mini_game/views/guess/views/guess_page.dart';
+import 'package:mini_game/views/guess/views/guess_view.dart';
+import 'package:mini_game/views/home/bindings/home_binding.dart';
+import 'package:mini_game/views/home/views/home_page.dart';
 import 'package:mini_game/views/muyu/bindings/muyu_binding.dart';
 import 'package:mini_game/views/muyu/views/muyu_view.dart';
 import 'package:mini_game/views/navigation/bindings/app_nav_binding.dart';
 import 'package:mini_game/views/navigation/views/app_navigation.dart';
 import 'package:mini_game/views/paper/bindings/paper_binding.dart';
 import 'package:mini_game/views/paper/views/paper_view.dart';
+import 'package:mini_game/views/theme_setting/bindings/theme_setting_binding.dart';
+import 'package:mini_game/views/theme_setting/views/theme_setting_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = AppRoutes.Home;
+  static const INITIAL = AppRoutes.Main;
 
   static final routes = [
     GetPage(
-      name: AppRoutes.Home,
+      name: AppRoutes.Main,
       page: () => AppNavigation(), //起始页面暂定为木鱼页面
       binding: AppNavBinding(),
-
-      // page: () => MainPage(), //起始页面暂定为木鱼页面
-      // binding: MainBinding(),
     ),
     // 画图游戏
     GetPage(
@@ -39,6 +44,26 @@ class AppPages {
       name: AppRoutes.Guess,
       page: () => GuessView(),
       binding: GuessBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.Home,
+      page: () => HomeView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.darkMode,
+      page: () => DarkModeView(),
+      binding: DarkModeBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.themeSettings,
+      page: () => ThemeSettingView(),
+      binding: ThemeSettingBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.aboutApp,
+      page: () => AboutAppView(),
+      binding: AboutAppBinding(),
     ),
   ];
 

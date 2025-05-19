@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "guessPageTitle": MessageLookupByLibrary.simpleMessage("Guess Number"),
     "homePageTitle": MessageLookupByLibrary.simpleMessage("Home Page"),
+    "mainPageTitle": MessageLookupByLibrary.simpleMessage("Main Page"),
     "muyuPageTitle": MessageLookupByLibrary.simpleMessage("muyu Game"),
     "paperPageTitle": MessageLookupByLibrary.simpleMessage("Draw Pictures"),
   };
