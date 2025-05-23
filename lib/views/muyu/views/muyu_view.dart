@@ -4,6 +4,7 @@ import 'package:mini_game/views/muyu/controllers/muyu_controller.dart';
 import 'package:mini_game/views/muyu/widgets/count_panel.dart';
 import 'package:mini_game/views/muyu/widgets/muyu_hammer.dart';
 import 'package:mini_game/views/muyu/widgets/muyu_image.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class MuyuView extends GetView<MuyuController> {
   const MuyuView({super.key});
@@ -16,10 +17,10 @@ class MuyuView extends GetView<MuyuController> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text("电子木鱼"),
+        title: Text(S.of(context).muyuPageAppbar),
         actions: [
           Tooltip(
-            message: '功德记录',
+            message: S.of(context).meritRecord,
             child: IconButton(
               onPressed: () => controller.toHistory(context),
               icon: const Icon(Icons.history),

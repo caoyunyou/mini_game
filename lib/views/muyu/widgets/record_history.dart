@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mini_game/views/muyu/models/merit_record.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 DateFormat format = DateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -13,7 +14,7 @@ class RecordHistory extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(context),
       body: ListView.builder(
         itemBuilder: _builderItem,
         itemCount: records.length,
@@ -21,9 +22,9 @@ class RecordHistory extends StatelessWidget {
     );
   }
 
-  PreferredSizeWidget _buildAppBar() => AppBar(
-    title: const Text(
-      '功德记录',
+  PreferredSizeWidget _buildAppBar(BuildContext context) => AppBar(
+    title: Text(
+      S.of(context).meritRecord,
       style: TextStyle(color: Colors.black, fontSize: 16),
     ),
     backgroundColor: Colors.white,
@@ -43,7 +44,7 @@ class RecordHistory extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(merit.muyuName,),
-            Text('功德 +${merit.value}',style: TextStyle(color: merit.meritType.color),),
+            Text('${S.of(context).merit} +${merit.value}',style: TextStyle(color: merit.meritType.color),),
           ],
       ),
       subtitle: Text(merit.audio),

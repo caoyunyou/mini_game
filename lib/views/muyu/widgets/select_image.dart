@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_game/views/muyu/models/image_option.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class ImageOptionItem extends StatelessWidget {
   final ImageOption option;
@@ -33,7 +34,7 @@ class ImageOptionItem extends StatelessWidget {
             ),
           ),
           Text(
-            "每次功德 + ${option.min}~${option.max}",
+            "${S.of(context).merit} + ${option.min}~${option.max}",
             style: const TextStyle(color: Colors.grey, fontSize: 12),
           ),
         ],
@@ -73,7 +74,7 @@ class ImageOptionPanel extends StatelessWidget {
             Container(
               height: 46,
               alignment: Alignment.center,
-              child: const Text('选择木鱼', style: labelStyle),
+              child: Text(S.of(context).muyuSelect, style: labelStyle),
             ),
             Expanded(
               child: Padding(

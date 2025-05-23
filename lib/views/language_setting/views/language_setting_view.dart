@@ -12,7 +12,7 @@ class LanguageSettingView extends GetView<LanguageSettingController> {
   Widget build(BuildContext context) {
     LanguageCode languageCode = context.watch<LocalProvider>().languageCode;
     return Scaffold(
-      appBar: AppBar(title: Text('语言设置')),
+      appBar: AppBar(title: Text(S.of(context).languageSettingPageTitle)),
       body: ListView(
         children: [
           // 切换为中文

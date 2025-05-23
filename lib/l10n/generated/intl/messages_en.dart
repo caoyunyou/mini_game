@@ -22,12 +22,52 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aboutApp": MessageLookupByLibrary.simpleMessage("About App"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "chinese": MessageLookupByLibrary.simpleMessage("Chinese"),
+    "cleanTipTitle": MessageLookupByLibrary.simpleMessage("Clear prompt"),
+    "clickGenerateNum": MessageLookupByLibrary.simpleMessage(
+      "Click button to generate a random number",
+    ),
+    "conform": MessageLookupByLibrary.simpleMessage("Conform"),
+    "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+    "darkModePageTitle": MessageLookupByLibrary.simpleMessage(
+      "Dark Mode Settings",
+    ),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
+    "followSystem": MessageLookupByLibrary.simpleMessage("Follow The System"),
+    "generateNum": MessageLookupByLibrary.simpleMessage(
+      "Generate a random number",
+    ),
     "guessPageTitle": MessageLookupByLibrary.simpleMessage("Guess Number"),
+    "guessPageTooltip": MessageLookupByLibrary.simpleMessage(
+      "Enter a number between 0 and 99",
+    ),
     "homePageTitle": MessageLookupByLibrary.simpleMessage("Home Page"),
+    "isBig": MessageLookupByLibrary.simpleMessage("Big"),
+    "isSmall": MessageLookupByLibrary.simpleMessage("Small"),
+    "languageSettingPageTitle": MessageLookupByLibrary.simpleMessage(
+      "Language Settings",
+    ),
+    "languageSettings": MessageLookupByLibrary.simpleMessage(
+      "Language Settings",
+    ),
+    "lightMode": MessageLookupByLibrary.simpleMessage("Light Mode"),
     "mainPageTitle": MessageLookupByLibrary.simpleMessage("Main Page"),
+    "mainTitle": MessageLookupByLibrary.simpleMessage("Mini Game"),
+    "manualSetting": MessageLookupByLibrary.simpleMessage("Manual setting"),
+    "merit": MessageLookupByLibrary.simpleMessage("Merit"),
+    "meritRecord": MessageLookupByLibrary.simpleMessage("Merit record"),
+    "musicSelect": MessageLookupByLibrary.simpleMessage("Choice of Music"),
+    "muyuPageAppbar": MessageLookupByLibrary.simpleMessage("Electronic Muyu"),
     "muyuPageTitle": MessageLookupByLibrary.simpleMessage("muyu Game"),
+    "muyuSelect": MessageLookupByLibrary.simpleMessage("Choice of Muyu"),
+    "paperPageAppbar": MessageLookupByLibrary.simpleMessage("Drawing Board"),
+    "paperPageCleanTip": MessageLookupByLibrary.simpleMessage(
+      "The current operation will clear the drawing content. Please confirm if you want to continue!",
+    ),
     "paperPageTitle": MessageLookupByLibrary.simpleMessage("Draw Pictures"),
+    "themeSettings": MessageLookupByLibrary.simpleMessage("Theme Settings"),
   };
 }

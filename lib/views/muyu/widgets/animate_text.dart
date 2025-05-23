@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mini_game/views/muyu/models/merit_record.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class AnimateText extends StatefulWidget {
   final MeritRecord record;
@@ -26,7 +27,6 @@ class _AnimateTextState extends State<AnimateText>
 
   @override
   void initState() {
-    print('AnimateText -> initState');
     super.initState();
 
     opacity = Tween(begin: 1.0, end: 0.0).animate(
@@ -73,7 +73,7 @@ class _AnimateTextState extends State<AnimateText>
         child: FadeTransition(
           opacity: opacity,
           child: Text(
-            '功德 +${widget.record.value}',
+            '${S.of(context).merit} +${widget.record.value}',
             style: TextStyle(
               color: widget.record.meritType.color,
               fontWeight: FontWeight.bold,

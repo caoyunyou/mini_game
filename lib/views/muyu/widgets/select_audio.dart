@@ -1,7 +1,7 @@
-// import 'package:flame_audio/flame_audio.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_game/views/muyu/models/audio_option.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class AudioOptionItem extends StatelessWidget {
   final AudioOption option;
@@ -67,7 +67,7 @@ class AudioOptionPanel extends StatelessWidget {
             Container(
               height: 46,
               alignment: Alignment.center,
-              child: const Text('选择音乐', style: labelStyle),
+              child: Text(S.of(context).musicSelect, style: labelStyle),
             ),
             ...List.generate(audioOptions.length, _buildByIndex)
           ],

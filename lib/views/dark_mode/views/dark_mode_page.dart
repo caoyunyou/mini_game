@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mini_game/views/dark_mode/controllers/dark_mode_controller.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class DarkModeView extends GetView<DarkModeController> {
   const DarkModeView({super.key});
@@ -8,20 +9,12 @@ class DarkModeView extends GetView<DarkModeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('主题设置')),
+      appBar: AppBar(title: Text(S.of(context).darkModePageTitle)),
       body: Obx(
         () => ListView(
           children: [
             ListTile(
-              title: Text('跟随系统'),
-              // leading: Radio(
-              //   value: ThemeMode.system,
-              //   groupValue: controller.currentThemeMode.value,
-              //   onChanged: (value) {
-              //     // 跟随系统
-              //     controller.setTheme(value as ThemeMode);
-              //   },
-              // ),
+              title: Text(S.of(context).followSystem),
               trailing: Switch(
                 value: controller.isFollowSystem.value,
                 onChanged: (bool value) {
@@ -33,12 +26,14 @@ class DarkModeView extends GetView<DarkModeController> {
                 },
               ),
             ),
+            // 手动设置
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 16, bottom: 6),
-              child: Text("手动设置"),
+              child: Text(S.of(context).manualSetting),
             ),
+            // 浅色模式
             ListTile(
-              title: Text('浅色模式'),
+              title: Text(S.of(context).lightMode),
               onTap: () {
                 controller.setTheme(ThemeMode.light);
               },
@@ -47,8 +42,9 @@ class DarkModeView extends GetView<DarkModeController> {
                       ? Icon(Icons.check, color: Theme.of(context).primaryColor)
                       : null,
             ),
+            // 深色模式
             ListTile(
-              title: Text('深色模式'),
+              title: Text(S.of(context).darkMode),
               onTap: () {
                 controller.setTheme(ThemeMode.dark);
               },

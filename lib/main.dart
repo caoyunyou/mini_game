@@ -48,7 +48,8 @@ class MyApp extends StatelessWidget {
         LanguageCode languageCode = context.watch<LocalProvider>().languageCode;
         return GetMaterialApp(
           // APP标题
-          title: '小游戏',
+          // title: S.current.mainTitle,
+          onGenerateTitle: (context) => S.of(context).mainTitle, // 动态生成标题
           //不显示测试DEBUG标志
           debugShowCheckedModeBanner: false,
           //启用日志
@@ -94,15 +95,5 @@ class MyApp extends StatelessWidget {
         );
       },
     );
-  }
-
-  // 解析，默认中文
-  Locale? languageResolve(Locale? locale, Iterable<Locale> supportedLocales) {
-    Locale currentLocale = Locale.fromSubtags(
-      languageCode: locale?.languageCode ?? "zh",
-    );
-    return supportedLocales.contains(currentLocale)
-        ? currentLocale
-        : const Locale.fromSubtags(languageCode: "zh");
   }
 }

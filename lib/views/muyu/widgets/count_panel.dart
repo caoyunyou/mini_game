@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 // 计数器
 class CountPanel extends StatelessWidget {
@@ -33,7 +34,7 @@ class CountPanel extends StatelessWidget {
           right: 0,
           child: Center(
             child: Text(
-              "功德数: $count",
+              "${S.of(context).merit}: $count",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -51,7 +52,7 @@ class CountPanel extends StatelessWidget {
             direction: Axis.vertical,
             children: [
               Tooltip(
-                message: '音乐选择',
+                message: S.of(context).musicSelect,
                 child: ElevatedButton(
                   style: style,
                   onPressed: onTapSwitchAudio,
@@ -59,7 +60,7 @@ class CountPanel extends StatelessWidget {
                 ),
               ),
               Tooltip(
-                message: '木鱼选择',
+                message: S.of(context).muyuSelect,
                 child: ElevatedButton(
                   style: style,
                   onPressed: onTapSwitchImage,

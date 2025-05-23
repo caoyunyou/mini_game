@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 // 确认弹窗组件封装处理
 class ConformDialog extends StatelessWidget {
@@ -63,7 +64,7 @@ class ConformDialog extends StatelessWidget {
           shape: const StadiumBorder(),
           padding: EdgeInsets.zero
         ),
-        child: Text('取消', style: TextStyle(fontWeight: FontWeight.bold)),
+        child: Text(S.of(context).cancel, style: TextStyle(fontWeight: FontWeight.bold)),
       ),
       SizedBox(width: 10),
       ElevatedButton(

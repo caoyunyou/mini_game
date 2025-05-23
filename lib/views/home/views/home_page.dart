@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:mini_game/router/app_pages.dart';
 import 'package:mini_game/views/home/controllers/home_controller.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -76,8 +77,9 @@ class HomeView extends GetView<HomeController> {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
+                  // 深色模式
                   ListTile(
-                    title: Text('深色模式'),
+                    title: Text(S.of(context).darkMode),
                     trailing: Icon(Icons.chevron_right),
                     leading: Icon(Icons.dark_mode_rounded),
                     onTap: () {
@@ -86,8 +88,9 @@ class HomeView extends GetView<HomeController> {
                   ),
                   // const Divider(thickness: 0.5,height: 0.5), // 分割线
                   const Divider(),
+                  // 主题设置
                   ListTile(
-                    title: Text('主题设置'),
+                    title: Text(S.of(context).themeSettings),
                     trailing: Icon(Icons.chevron_right),
                     leading: Icon(Icons.color_lens_outlined),
                     onTap: () {
@@ -95,8 +98,9 @@ class HomeView extends GetView<HomeController> {
                     },
                   ),
                   const Divider(),
+                  // 语言设置
                   ListTile(
-                    title: Text('语言设置'),
+                    title: Text(S.of(context).languageSettings),
                     trailing: Icon(Icons.chevron_right),
                     leading: Icon(Icons.language),
                     onTap: () {
@@ -105,7 +109,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   SizedBox(height: 10), // 10个长度距离
                   ListTile(
-                    title: Text('关于应用'),
+                    title: Text(S.of(context).aboutApp),
                     trailing: Icon(Icons.chevron_right),
                     leading: Icon(Icons.question_mark),
                     onTap: () {
@@ -120,49 +124,5 @@ class HomeView extends GetView<HomeController> {
       ),
     );
 
-    //   ScrollConfiguration(
-    //     behavior: NoScrollBehavior(),
-    //     child: ListView(
-    //       padding: EdgeInsets.zero,//
-    //       children: [
-    //         // 留一点空间
-    //         const SizedBox(
-    //           height: 10,
-    //         ),
-    //         Row(
-    //           children: [
-    //
-    //           ],
-    //         )
-    //       ],
-    //     )
-    //
-    //     // 跳转示例
-    //     // child: Center(child: ElevatedButton(onPressed: ()=>Get.toNamed('/muyu'), child: Text('点一下')),)
-    // );
-  }
-
-  bool themeSwitch(bool val) {
-    return false;
-  }
-
-  Widget _buildListTitle(String title, IconData icon) {
-    // Theme.of(context)
-    return ListTile(
-      title: Text(title),
-      leading: Icon(icon),
-      // 左边标志
-      trailing: Icon(Icons.chevron_right),
-      //右边组件
-      selectedColor: Colors.blue,
-      // selected: true,
-      tileColor: Colors.white12,
-      // splashColor: Colors.white10, // 点击时的水波纹颜色,有些终端本身就支持
-      hoverColor: Colors.white24,
-      //悬停颜色，在砖面应用才会显示
-      onTap: () {
-        print('主题设置 => 点击');
-      },
-    );
   }
 }

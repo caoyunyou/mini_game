@@ -9,6 +9,7 @@ import 'package:mini_game/views/paper/widgets/conform_dialog.dart';
 import 'package:mini_game/views/paper/widgets/stork_width_selector.dart';
 
 import '../model/model.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class PaperView extends GetView<PaperController> {
   const PaperView({super.key});
@@ -67,14 +68,13 @@ class PaperView extends GetView<PaperController> {
 
   //  展示提示框
   void _showDialog(BuildContext context) {
-    String msg = "当前操作会清空画图内容，请确实是否继续!";
     showDialog(
       context: context,
       builder:
           (ctx) => ConformDialog(
-            title: '清空提示',
-            conformText: "确定",
-            msg: msg,
+            title: S.of(context).cleanTipTitle,
+            conformText: S.of(context).conform,
+            msg: S.of(context).paperPageCleanTip,
             onConform: () => controller.onClear(context),
           ),
     );

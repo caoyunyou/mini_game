@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class GuessAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onCheck;
@@ -27,7 +28,7 @@ class GuessAppBar extends StatelessWidget implements PreferredSizeWidget {
           splashColor: Colors.orange,
           textStyle: const TextStyle(color: Colors.white),
           onPressed: onCheck,
-          child: const Text('确定'),
+          child: Text(S.of(context).conform),
         ),
       ],
       title: TextField(
@@ -56,7 +57,7 @@ class GuessAppBar extends StatelessWidget implements PreferredSizeWidget {
             borderRadius: BorderRadius.all(Radius.circular(6)),
           ),
           // 提示文本
-          hintText: "输入 0~99 数字",
+          hintText: S.of(context).guessPageTooltip,
           //文本左侧显示
           hintTextDirection: TextDirection.ltr,
           // 提示文本最大显示行数

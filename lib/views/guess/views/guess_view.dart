@@ -4,6 +4,7 @@ import 'package:mini_game/views/guess/controllers/guess_controller.dart';
 import 'package:mini_game/views/guess/widgets/result_nitice.dart';
 
 import 'guess_app_bar.dart';
+import 'package:mini_game/l10n/generated/l10n.dart';
 
 class GuessView extends GetView<GuessController> {
   const GuessView({super.key});
@@ -21,17 +22,19 @@ class GuessView extends GetView<GuessController> {
             if (controller.isBig.value != null)
               Column(
                 children: [
+                  // 如果大了
                   if (controller.isBig.value!)
                     ResultNotice(
                       color: Colors.redAccent,
-                      info: '大了',
+                      info: S.of(context).isBig,
                       controller: controller.animationController,
                     ),
                   Spacer(),
+                  // 如果小了
                   if (!controller.isBig.value!)
                     ResultNotice(
                       color: Colors.blueAccent,
-                      info: '小了',
+                      info: S.of(context).isSmall,
                       controller: controller.animationController,
                     ),
                 ],
@@ -40,7 +43,8 @@ class GuessView extends GetView<GuessController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  if (!controller.guessing.value) const Text('点击生成随机数'),
+                  if (!controller.guessing.value)
+                    Text(S.of(context).clickGenerateNum),
                   Text(
                     controller.guessing.value
                         ? '**'
@@ -62,7 +66,7 @@ class GuessView extends GetView<GuessController> {
               controller.guessing.value ? null : controller.generateRandomValue,
           backgroundColor:
               controller.guessing.value ? Colors.grey : Colors.blue,
-          tooltip: '生成随机数',
+          tooltip: S.of(context).generateNum,
           child: const Icon(Icons.generating_tokens_outlined),
         ),
       ),
