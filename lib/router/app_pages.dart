@@ -7,6 +7,8 @@ import 'package:mini_game/views/guess/bindings/guess_binding.dart';
 import 'package:mini_game/views/guess/views/guess_view.dart';
 import 'package:mini_game/views/home/bindings/home_binding.dart';
 import 'package:mini_game/views/home/views/home_page.dart';
+import 'package:mini_game/views/language_setting/bindings/language_setting_binding.dart';
+import 'package:mini_game/views/language_setting/views/language_setting_view.dart';
 import 'package:mini_game/views/muyu/bindings/muyu_binding.dart';
 import 'package:mini_game/views/muyu/views/muyu_view.dart';
 import 'package:mini_game/views/navigation/bindings/app_nav_binding.dart';
@@ -45,25 +47,35 @@ class AppPages {
       page: () => GuessView(),
       binding: GuessBinding(),
     ),
+    // 个人主页
     GetPage(
       name: AppRoutes.Home,
       page: () => HomeView(),
       binding: HomeBinding(),
     ),
+    // 深色模式
     GetPage(
       name: AppRoutes.darkMode,
       page: () => DarkModeView(),
       binding: DarkModeBinding(),
     ),
+    // 主题设置
     GetPage(
       name: AppRoutes.themeSettings,
       page: () => ThemeSettingView(),
       binding: ThemeSettingBinding(),
     ),
+    // 关于APP
     GetPage(
       name: AppRoutes.aboutApp,
       page: () => AboutAppView(),
       binding: AboutAppBinding(),
+    ),
+    // 语言设置
+    GetPage(
+      name: AppRoutes.languageSetting,
+      page: () => LanguageSettingView(),
+      binding: LanguageSettingBinding(),
     ),
   ];
 

@@ -3,5 +3,7 @@
   "muyuPageTitle": "敲木鱼游戏",
   "guessPageTitle": "猜数字",
   "paperPageTitle": "画图",
-  "mainPageTitle": "主页"
+  "mainPageTitle": "主页",
+  "chinese": "中文",
+  "english": "英文"
 }

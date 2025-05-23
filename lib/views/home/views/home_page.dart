@@ -94,6 +94,15 @@ class HomeView extends GetView<HomeController> {
                       Get.toNamed(AppRoutes.themeSettings);
                     },
                   ),
+                  const Divider(),
+                  ListTile(
+                    title: Text('语言设置'),
+                    trailing: Icon(Icons.chevron_right),
+                    leading: Icon(Icons.language),
+                    onTap: () {
+                      Get.toNamed(AppRoutes.languageSetting);
+                    },
+                  ),
                   SizedBox(height: 10), // 10个长度距离
                   ListTile(
                     title: Text('关于应用'),

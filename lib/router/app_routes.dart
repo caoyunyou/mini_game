@@ -9,6 +9,7 @@ abstract class AppRoutes {
   static const darkMode = '/darkMode';//深色模式相关
   static const themeSettings = '/themeSettings';//主题设置相关,后面写
   static const aboutApp = '/aboutApp';//主题设置相关,后面写
+  static const languageSetting = '/languageSetting';//语言设置相关,后面写
 
   // setproxy
   // static const Proxy = '/proxy';

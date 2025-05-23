@@ -79,6 +79,16 @@ class S {
   String get mainPageTitle {
     return Intl.message('主页', name: 'mainPageTitle', desc: '', args: []);
   }
+
+  /// `中文`
+  String get chinese {
+    return Intl.message('中文', name: 'chinese', desc: '', args: []);
+  }
+
+  /// `英文`
+  String get english {
+    return Intl.message('英文', name: 'english', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

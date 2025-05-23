@@ -3,5 +3,7 @@
   "muyuPageTitle": "muyu Game",
   "guessPageTitle": "Guess Number",
   "paperPageTitle": "Draw Pictures",
-  "mainPageTitle": "Main Page"
+  "mainPageTitle": "Main Page",
+  "chinese": "Chinese",
+  "english": "English"
 }
